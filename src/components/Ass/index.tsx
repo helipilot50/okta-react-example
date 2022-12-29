@@ -1,5 +1,5 @@
 import React from 'react';
-import ass from './ass.jpg';
+import ass from '../../assets/ass.jpg';
 import {
   Image
 } from "@fluentui/react";

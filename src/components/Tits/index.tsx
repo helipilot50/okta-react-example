@@ -1,5 +1,5 @@
 import React from 'react';
-import tits from './tits.jpg';
+import tits from '../../assets/tits.jpg';
 import {
   Image
 } from "@fluentui/react";
