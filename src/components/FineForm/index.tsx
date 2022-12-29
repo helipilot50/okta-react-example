@@ -2,11 +2,6 @@ import { DefaultButton, PrimaryButton, TextField, Text } from '@fluentui/react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-interface Values {
-  firstName: string;
-  lastName: string;
-  email: string;
-}
 
 const validationSchema = yup.object({
   email: yup
