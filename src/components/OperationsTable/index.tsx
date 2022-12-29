@@ -47,19 +47,6 @@ const columns = [
   { key: 'column4', name: 'Date', fieldName: 'date', minWidth: 100, maxWidth: 300, isResizable: true },
 ];
 
-// const OperationsTable = () => {
-//   return (
-//     <div data-is-scrollable={true}>
-//       <div className={`s-Grid-col ms-sm9 ms-xl9 ${classNames.table}`}>
-//         <DetailsList
-//           items={operations}
-//           columns={columns}
-//           selectionMode={0}
-//         />
-//       </div>
-//     </div>
-//   );
-// };
 const OperationsTable = () => {
   return (
     <DetailsList className={classNames.table}

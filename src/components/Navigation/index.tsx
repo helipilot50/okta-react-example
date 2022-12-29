@@ -9,6 +9,7 @@ import {
 import Ass from '../Ass';
 import CardSection from '../CardSection';
 import Fanny from '../Fanny';
+import FineForm from '../FineForm';
 import OperationsTable from '../OperationsTable';
 import Tits from '../Tits';
 const navStyles = {
@@ -98,6 +99,20 @@ const navLinkGroups: INavLinkGroup[] = [
           }
         }
       },
+      {
+        name: 'Fine Form',
+        key: 'key6',
+        url: 'fineform',
+        iconProps: {
+          iconName: 'PageHeaderEdit',
+          styles: {
+            root: {
+              fontSize: 20,
+              color: '#106ebe',
+            },
+          }
+        }
+      },
     ],
   },
 ];
@@ -105,8 +120,7 @@ const navLinkGroups: INavLinkGroup[] = [
 export default function Navigation() {
   const navigate = useNavigate();
   function onNavClick(ev?: React.MouseEvent<HTMLElement>, item?: INavLink): void {
-    ev?.preventDefault();
-    // console.log(`onClick ${JSON.stringify(item, null, 2)}`);
+    ev?.preventDefault();  // prevent navigation to the url
     if (item)
       navigate(item?.url);
   }
@@ -124,6 +138,7 @@ export default function Navigation() {
         <Route path="ass" element={<Ass />} />
         <Route path="fanny" element={<Fanny />} />
         <Route path="operations" element={<OperationsTable />} />
+        <Route path="fineform" element={<FineForm />} />
       </Routes>
     </Fragment>
 

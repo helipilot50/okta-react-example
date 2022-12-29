@@ -63,25 +63,25 @@ const cards = [
     title: 'Current Balance',
     amount: '$21876',
     icon: 'Money',
-    percentage: '2.3',
+    percentage: '2.3%',
   },
   {
     title: 'Current Expenses',
     amount: '$10876',
     icon: 'PaymentCard',
-    percentage: '0.3',
+    percentage: '0.3%',
   },
   {
     title: 'Current Income',
     amount: '$25124',
     icon: 'Savings',
-    percentage: '1.3',
+    percentage: '1.3%',
   },
   {
     title: 'Future Expenses',
     amount: '$1509',
     icon: 'PaymentCard',
-    percentage: '51.2',
+    percentage: '51.2%',
   },
 ];
 
