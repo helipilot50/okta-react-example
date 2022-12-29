@@ -13,17 +13,23 @@ const validationSchema = yup.object({
     .string()
     .email('Enter a valid email')
     .required('Email is required'),
-  password: yup
+
+  firstName: yup
     .string()
-    .min(8, 'Password should be of minimum 8 characters length')
-    .required('Password is required'),
+    .min(2, 'First name should be of minimum 2 characters length')
+    .required('First name is required'),
+  lastName: yup
+    .string()
+    .min(2, 'Last name should be of minimum 2 characters length')
+    .required('Last name is required'),
 });
 
 function FineForm() {
   const formik = useFormik({
     initialValues: {
+      firstName: '',
+      lastName: '',
       email: '',
-      password: '',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -35,6 +41,24 @@ function FineForm() {
       <Text variant='xLarge'>Details</Text>
       <form onSubmit={formik.handleSubmit}>
         <TextField
+          id="firstName"
+          name="firstName"
+          label="First Name"
+          placeholder='your first name'
+          value={formik.values.firstName}
+          onChange={formik.handleChange}
+          errorMessage={(formik.touched.firstName && Boolean(formik.errors.firstName)) ? formik.errors.firstName : undefined}
+        />
+        <TextField
+          id="lastName"
+          name="lastName"
+          label="Last Name"
+          placeholder='your last name'
+          value={formik.values.lastName}
+          onChange={formik.handleChange}
+          errorMessage={(formik.touched.lastName && Boolean(formik.errors.lastName)) ? formik.errors.lastName : undefined}
+        />
+        <TextField
           id="email"
           name="email"
           label="Email"
@@ -43,16 +67,7 @@ function FineForm() {
           onChange={formik.handleChange}
           errorMessage={(formik.touched.email && Boolean(formik.errors.email)) ? formik.errors.email : undefined}
         />
-        <TextField
-          id="password"
-          name="password"
-          label="Password"
-          type="password"
-          placeholder='your password here'
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          errorMessage={(formik.touched.password && Boolean(formik.errors.password)) ? formik.errors.password : undefined}
-        />
+
 
         <PrimaryButton type="submit" text='Save' />
         <DefaultButton text='Cancel' />
