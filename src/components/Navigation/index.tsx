@@ -1,6 +1,16 @@
 import { INavLink, INavLinkGroup, Nav } from '@fluentui/react';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import {
+  useNavigate,
+  Routes,
+  Route,
+  Navigate
+} from 'react-router-dom';
+import Ass from '../Ass';
+import CardSection from '../CardSection';
+import Fanny from '../Fanny';
+import OperationsTable from '../OperationsTable';
+import Tits from '../Tits';
 const navStyles = {
   root: {
     // height: '100vh',
@@ -74,11 +84,25 @@ const navLinkGroups: INavLinkGroup[] = [
           }
         }
       },
+      {
+        name: 'Fanny',
+        key: 'key5',
+        url: 'fanny',
+        iconProps: {
+          iconName: 'WebAppBuilderModule',
+          styles: {
+            root: {
+              fontSize: 20,
+              color: '#106ebe',
+            },
+          }
+        }
+      },
     ],
   },
 ];
 
-export default function NavBar() {
+export default function Navigation() {
   const navigate = useNavigate();
   function onNavClick(ev?: React.MouseEvent<HTMLElement>, item?: INavLink): void {
     ev?.preventDefault();
@@ -88,10 +112,20 @@ export default function NavBar() {
   }
 
   return (
-    <Nav
-      groups={navLinkGroups}
-      onLinkClick={onNavClick}
-      styles={navStyles} />
+    <Fragment>
+      <Nav
+        groups={navLinkGroups}
+        onLinkClick={onNavClick}
+        styles={navStyles} />
+      <Routes>
+        <Route path="/" element={<Navigate replace to='cards' />} />
+        <Route path="cards" element={<CardSection />} />
+        <Route path="tits" element={<Tits />} />
+        <Route path="ass" element={<Ass />} />
+        <Route path="fanny" element={<Fanny />} />
+        <Route path="operations" element={<OperationsTable />} />
+      </Routes>
+    </Fragment>
 
   );
 }
