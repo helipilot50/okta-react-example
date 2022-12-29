@@ -41,10 +41,10 @@ const operations = [
 ];
 
 const columns = [
-  { key: 'column', name: 'From', fieldName: 'from', minWidth: 100, maxWidth: 300, isResizable: true },
-  { key: 'column', name: 'To', fieldName: 'to', minWidth: 100, maxWidth: 300, isResizable: true },
-  { key: 'column', name: 'Amount', fieldName: 'amount', minWidth: 100, maxWidth: 300, isResizable: true },
-  { key: 'column', name: 'Date', fieldName: 'date', minWidth: 100, maxWidth: 300, isResizable: true },
+  { key: 'column1', name: 'From', fieldName: 'from', minWidth: 100, maxWidth: 300, isResizable: true },
+  { key: 'column2', name: 'To', fieldName: 'to', minWidth: 100, maxWidth: 300, isResizable: true },
+  { key: 'column3', name: 'Amount', fieldName: 'amount', minWidth: 100, maxWidth: 300, isResizable: true },
+  { key: 'column4', name: 'Date', fieldName: 'date', minWidth: 100, maxWidth: 300, isResizable: true },
 ];
 
 // const OperationsTable = () => {
@@ -62,7 +62,7 @@ const columns = [
 // };
 const OperationsTable = () => {
   return (
-    <DetailsList
+    <DetailsList className={classNames.table}
       items={operations}
       columns={columns}
       selectionMode={0}

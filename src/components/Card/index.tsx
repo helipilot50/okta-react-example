@@ -5,23 +5,24 @@ import {
   DocumentCard,
   DocumentCardTitle,
   DocumentCardImage,
-  ImageFit
+  ImageFit,
+  DocumentCardType
 } from '@fluentui/react';
 
 
-const container = {
-  display: 'flex',
-  justifyContent: 'center',
-  margin: '10vh 0',
-};
+// const container = {
+//   display: 'flex',
+//   justifyContent: 'center',
+//   margin: '10vh 0',
+// };
 
-const icon = {
-  fontSize: 24,
-  padding: 15,
-  verticalAlign: 'middle',
-  paddingLeft: 0,
-  color: '#0078d4'
-};
+// const icon = {
+//   fontSize: 24,
+//   padding: 15,
+//   verticalAlign: 'middle',
+//   paddingLeft: 0,
+//   color: '#0078d4'
+// };
 
 const styles = {
   cardStyles: {
@@ -62,7 +63,7 @@ const styles = {
 export default function Card(props: { title: string, amount: string, percentage?: string, image?: any; text?: string; }) {
   initializeIcons();
   return (
-    <DocumentCard styles={styles.cardStyles}>
+    <DocumentCard styles={styles.cardStyles} type={DocumentCardType.normal} key={props.title}>
       {props.image && <DocumentCardImage height={150} imageFit={ImageFit.cover} imageSrc={props.image} />}
       <DocumentCardTitle title={props.title} />
       <DocumentCardTitle title={props.amount} showAsSecondaryTitle styles={styles.amount} />

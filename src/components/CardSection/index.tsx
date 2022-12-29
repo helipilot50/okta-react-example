@@ -1,25 +1,20 @@
-import React from 'react';
-import tits from '../../assets/tits.jpg';
 import Card from '../Card';
 import ass from '../../assets/ass.jpg';
+import tits from '../../assets/tits.jpg';
+import thong from '../../assets/thong.jpg';
+import fanny from '../../assets/fanny.jpg';
+import legs from '../../assets/legs.jpg';
+
 import {
-  // Text,
   initializeIcons,
-  // DocumentCard,
-  // DocumentCardTitle,
-  // DocumentCardImage,
-  // DocumentCardDetails,
-  // ImageFit,
-  // DocumentCardStatus,
-  // DocumentCardActivity,
   Stack
 } from '@fluentui/react';
 
-// const container = {
-//   display: 'flex',
-//   justifyContent: 'center',
-//   margin: '10vh 0',
-// };
+const container = {
+  display: 'flex',
+  justifyContent: 'center',
+  margin: '10vh 0',
+};
 
 // const icon = {
 //   fontSize: 24,
@@ -61,7 +56,7 @@ import {
 //     }
 //   }
 // };
-const images = [tits, ass];
+const images = [tits, ass, thong, fanny, legs];
 
 const cards = [
   {
@@ -82,37 +77,19 @@ const cards = [
     icon: 'Savings',
     percentage: '1.3',
   },
+  {
+    title: 'Future Expenses',
+    amount: '$1509',
+    icon: 'PaymentCard',
+    percentage: '51.2',
+  },
 ];
-
-// const CardSections = () => {
-//   initializeIcons();
-
-//   return (
-//     <div style={container}>
-//       {cards.map((card) => (
-//         <div className="s-Grid-col ms-sm3 ms-xl3">
-//           {/* style props should be 'styles' instead of 'style'. Be Careful:) */}
-//           <DocumentCard styles={styles.cardStyles}>
-//             <DocumentCardImage height={150} imageFit={ImageFit.cover} imageSrc={tits} />
-//             <DocumentCardDetails>
-//               <DocumentCardTitle title={card.title} />
-//               <DocumentCardTitle title={card.amount} showAsSecondaryTitle />
-//               <DocumentCardTitle title={card.percentage} showAsSecondaryTitle />
-//               <DocumentCardStatus statusIcon="attach" status="3 Attachments" />
-//             </DocumentCardDetails>
-//           </DocumentCard>
-//         </div>
-//       ))
-//       }
-//     </div >
-//   );
-// };
 
 const CardSections = () => {
   initializeIcons();
 
   return (
-    <Stack horizontal>
+    <Stack horizontal style={container}>
 
       {cards.map((card) => (
         <Card title={card.title}
