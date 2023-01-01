@@ -6,12 +6,12 @@ import {
   Route,
   Navigate
 } from 'react-router-dom';
-import Ass from '../Ass';
+import Lamps from '../Lamps';
 import CardSection from '../CardSection';
-import Fanny from '../Fanny';
+import EiffelTour from '../EiffelTour';
 import FineForm from '../FineForm';
 import OperationsTable from '../OperationsTable';
-import Tits from '../Tits';
+import Sunset from '../Sunset';
 const navStyles = {
   root: {
     // height: '100vh',
@@ -44,9 +44,9 @@ const navLinkGroups: INavLinkGroup[] = [
         }
       },
       {
-        name: 'Tits',
+        name: 'Sunset',
         key: 'key2',
-        url: 'tits',
+        url: 'sunset',
         iconProps: {
           iconName: 'PlayerSettings',
           styles: {
@@ -58,9 +58,9 @@ const navLinkGroups: INavLinkGroup[] = [
         }
       },
       {
-        name: 'Ass',
+        name: 'Lamps',
         key: 'key3',
-        url: 'ass',
+        url: 'lamps',
         iconProps: {
           iconName: 'SwitcherStartEnd',
           styles: {
@@ -86,9 +86,9 @@ const navLinkGroups: INavLinkGroup[] = [
         }
       },
       {
-        name: 'Fanny',
+        name: 'La Eiffel Tour',
         key: 'key5',
-        url: 'fanny',
+        url: 'eiffeltour',
         iconProps: {
           iconName: 'WebAppBuilderModule',
           styles: {
@@ -134,9 +134,9 @@ export default function Navigation() {
       <Routes>
         <Route path="/" element={<Navigate replace to='cards' />} />
         <Route path="cards" element={<CardSection />} />
-        <Route path="tits" element={<Tits />} />
-        <Route path="ass" element={<Ass />} />
-        <Route path="fanny" element={<Fanny />} />
+        <Route path="sunset" element={<Sunset />} />
+        <Route path="lamps" element={<Lamps />} />
+        <Route path="eiffeltour" element={<EiffelTour />} />
         <Route path="operations" element={<OperationsTable />} />
         <Route path="fineform" element={<FineForm />} />
       </Routes>

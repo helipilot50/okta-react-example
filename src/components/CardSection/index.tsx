@@ -1,9 +1,11 @@
 import Card from '../Card';
-import ass from '../../assets/ass.jpg';
-import tits from '../../assets/tits.jpg';
-import thong from '../../assets/thong.jpg';
-import fanny from '../../assets/fanny.jpg';
-import legs from '../../assets/legs.jpg';
+import amsterdam from '../../assets/Amsterdam.png';
+import nyhavn from '../../assets/Nyhavn.png';
+import eiffelTour from '../../assets/EiffelTour.png';
+import dolphins from '../../assets/Dolphins.png';
+import klitmoller from '../../assets/Klitmoller.png';
+import london from '../../assets/London.png';
+import blackDiamond from '../../assets/BlackDiamond.png';
 
 import {
   initializeIcons,
@@ -56,7 +58,7 @@ const container = {
 //     }
 //   }
 // };
-const images = [tits, ass, thong, fanny, legs];
+const images = [amsterdam, nyhavn, eiffelTour, dolphins, klitmoller, london, blackDiamond];
 
 const cards = [
   {
