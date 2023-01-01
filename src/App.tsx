@@ -14,7 +14,7 @@ initializeIcons();
 function App() {
   return (
     <Stack>
-      <Text variant='xxLarge'>Example Dashboard</Text>
+      <Text variant='xxLarge'>Header here</Text>
       <Stack horizontal>
         <Navigation />
       </Stack>

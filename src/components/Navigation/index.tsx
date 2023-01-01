@@ -7,11 +7,10 @@ import {
   Navigate
 } from 'react-router-dom';
 import Lamps from '../Lamps';
-import CardSection from '../CardSection';
 import EiffelTour from '../EiffelTour';
 import FineForm from '../FineForm';
-import OperationsTable from '../OperationsTable';
 import Sunset from '../Sunset';
+import Dashboard from '../Dashboard';
 const navStyles = {
   root: {
     // height: '100vh',
@@ -32,7 +31,7 @@ const navLinkGroups: INavLinkGroup[] = [
       {
         name: 'Dashboard',
         key: 'key1',
-        url: 'cards',
+        url: 'dashboard',
         iconProps: {
           iconName: 'News',
           styles: {
@@ -63,20 +62,6 @@ const navLinkGroups: INavLinkGroup[] = [
         url: 'lamps',
         iconProps: {
           iconName: 'SwitcherStartEnd',
-          styles: {
-            root: {
-              fontSize: 20,
-              color: '#106ebe',
-            },
-          }
-        }
-      },
-      {
-        name: 'Stats',
-        key: 'key4',
-        url: 'operations',
-        iconProps: {
-          iconName: 'StackedLineChart',
           styles: {
             root: {
               fontSize: 20,
@@ -132,12 +117,11 @@ export default function Navigation() {
         onLinkClick={onNavClick}
         styles={navStyles} />
       <Routes>
-        <Route path="/" element={<Navigate replace to='cards' />} />
-        <Route path="cards" element={<CardSection />} />
+        <Route path="/" element={<Navigate replace to='dashboard' />} />
+        <Route path="dashboard" element={<Dashboard />} />
         <Route path="sunset" element={<Sunset />} />
         <Route path="lamps" element={<Lamps />} />
         <Route path="eiffeltour" element={<EiffelTour />} />
-        <Route path="operations" element={<OperationsTable />} />
         <Route path="fineform" element={<FineForm />} />
       </Routes>
     </Fragment>
