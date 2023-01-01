@@ -1,6 +1,6 @@
 import {
   DefaultButton,
-  PrimaryButton, TextField, Text, DatePicker,
+  PrimaryButton, TextField, DatePicker,
   DayOfWeek, defaultDatePickerStrings,
   Panel,
   Label
@@ -30,7 +30,7 @@ const validationSchema = yup.object({
 });
 
 export function OperationDetail(props: {
-  operation: Operation | undefined;
+  operation?: Operation;
   onDismiss?: (operation: Operation | undefined) => void;
 }) {
   const formik = useFormik({
@@ -43,14 +43,16 @@ export function OperationDetail(props: {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
-      if (props.onDismiss)
+      if (props.onDismiss) {
         props.onDismiss({
+          id: (props.operation && props.operation.id) || '',
           from: values.from,
           to: values.to,
           amount: values.amount,
           date: values.date,
 
         });
+      }
     },
   });
   return (
@@ -64,7 +66,7 @@ export function OperationDetail(props: {
       customWidth='500px'
       closeButtonAriaLabel='Close'
       headerText='Operation Details'
-      isHiddenOnDismiss={true}
+    // isHiddenOnDismiss={true}
     >
       <div>
         <form onSubmit={formik.handleSubmit}>

@@ -11,32 +11,37 @@ const classNames = mergeStyleSets({
 
 
 
-const operations: Operation[] = [
+const operationsData: Operation[] = [
   {
+    id: "1",
     from: '0000 0284 7529 4751 8475',
     to: '0980 9808 8200 7680',
     amount: 1510.00,
     date: new Date('2020-05-20'),
   },
   {
+    id: "2",
     from: '0000 0284 7529 4751 8475',
     to: '0980 9808 8200 7680',
     amount: 1010,
     date: new Date('2020-05-19'),
   },
   {
+    id: "3",
     from: '0000 0284 7529 4751 8475',
     to: '0980 9808 8200 7680',
     amount: 1350,
     date: new Date('2020-05-18'),
   },
   {
+    id: "4",
     from: '0000 0284 7529 4751 8475',
     to: '0980 9808 8200 7680',
     amount: 1900,
     date: new Date('2020-05-18'),
   },
   {
+    id: "5",
     from: '0000 0284 7529 4751 8475',
     to: '0980 9808 8200 7680',
     amount: 6350,
@@ -78,6 +83,7 @@ function _renderItemColumn(item?: any, index?: number, column?: IColumn) {
 }
 export function OperationsList() {
   const [showDetail, setShowDetail] = useState(false);
+  const [operations, setOperations] = useState(operationsData);
   const [currentOperation, setCurrentOperation] = useState<Operation | undefined>(undefined);
   function _onItemInvoked(item: any, index: number | undefined): void {
     setCurrentOperation(item);
@@ -86,7 +92,22 @@ export function OperationsList() {
   function onDismiss(operation: Operation | undefined) {
     setShowDetail(false);
     setCurrentOperation(operation);
-    alert(JSON.stringify(operation, null, 2));
+    // alert(JSON.stringify(operation, null, 2));
+    if (operation) {
+      operationsData.find(function (element: Operation, index: number, array: Operation[]) {
+        if (element.id === operation.id) {
+          operationsData[index].amount = operation.amount;
+          operationsData[index].date = operation.date;
+          operationsData[index].from = operation.from;
+          operationsData[index].to = operation.to;
+          return true;
+        }
+        return false;
+      });
+      console.log(operationsData);
+      setOperations(operationsData);
+    }
+
   }
   return (
     <Fragment>
