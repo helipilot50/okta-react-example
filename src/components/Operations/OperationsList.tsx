@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { DetailsList, IColumn, mergeStyleSets } from '@fluentui/react';
 import { Operation } from './Operation';
 import { OperationDetail } from './OperationDetail';
+import { formatDate } from './OpsUtils';
 
 const classNames = mergeStyleSets({
   table: {
@@ -65,7 +66,7 @@ function _renderItemColumn(item?: any, index?: number, column?: IColumn) {
     case 'date':
       return (
         <span>
-          {fieldContent.toString()}
+          {formatDate(new Date(fieldContent))}
         </span>
       );
 
@@ -94,18 +95,14 @@ export function OperationsList() {
     setCurrentOperation(operation);
     // alert(JSON.stringify(operation, null, 2));
     if (operation) {
-      operationsData.find(function (element: Operation, index: number, array: Operation[]) {
+      let dataList = operations.map(function (element: Operation, index: number, array: Operation[]) {
         if (element.id === operation.id) {
-          operationsData[index].amount = operation.amount;
-          operationsData[index].date = operation.date;
-          operationsData[index].from = operation.from;
-          operationsData[index].to = operation.to;
-          return true;
+          return operation;
         }
-        return false;
+        return element;
       });
-      console.log(operationsData);
-      setOperations(operationsData);
+      console.log(dataList);
+      setOperations(dataList);
     }
 
   }
